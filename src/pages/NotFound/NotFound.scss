@@ -1,0 +1,39 @@
+@import "../../styles/base/typography";
+@import "../../styles/base/_variables";
+.Error__page{
+    background-color: #fff;
+    height: 31.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.125rem;
+    .title__error{
+        font-size: 28px;
+        color: $Very-dark-blue;
+    }
+    .description__error{
+        color: $Dark-grayish-blue;
+        text-align: center;
+    }
+    .btn__back{
+        background-color: $primary-clr1;
+        border: none;
+        padding: 14px;
+        color: #fff;
+        border-radius:0.25rem ;
+        -webkit-border-radius:0.25rem ;
+        -moz-border-radius:0.25rem ;
+        -ms-border-radius:0.25rem ;
+        -o-border-radius:0.25rem ;
+        cursor: pointer;
+}
+}
+@media screen and (min-width:769px){
+    .Error__page{
+        .title__error{
+        font-size: 100px;
+        color: $Very-dark-blue;
+    }
+    }
+}

@@ -1,0 +1,4 @@
+@import "./_typography";
+@function weights($weight-name){
+    @return map-get($font-weight,$weight-name);
+}

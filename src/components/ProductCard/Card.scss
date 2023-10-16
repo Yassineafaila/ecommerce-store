@@ -1,0 +1,127 @@
+@import "../../styles/base/variables";
+@import "../../styles/base/functions";
+@import "../../styles/base/typography";
+
+@mixin card__button {
+  border: none;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  position: absolute;
+  transition: 0.4s all ease;
+  -webkit-transition: 0.4s all ease;
+  -moz-transition: 0.4s all ease;
+  -ms-transition: 0.4s all ease;
+  -o-transition: 0.4s all ease;
+  cursor: pointer;
+  svg {
+    stroke: #000;
+    stroke-width: 2;
+  }
+  &:hover {
+    background-color: #fff;
+    svg {
+      stroke: $primary-clr1;
+    }
+  }
+}
+.card {
+  width: 270px;
+  height: auto;
+  position: relative;
+  //outline: 1px solid red;
+  background-color: #fff;
+  margin: 0 auto !important;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  .card__img {
+    width: 100%;
+    margin-block-end: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15.625rem;
+
+    padding: 2rem;
+    cursor: pointer;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+    }
+    .button__like {
+      @include card__button();
+      top: 20px;
+      right: 20px;
+    }
+    .card__more {
+      @include card__button();
+      top: 60px;
+      right: 20px;
+    }
+    .button__Cart {
+      font-weight: map-get($map: $font-weight, $key: "semibold");
+      border: none;
+      background-color: $Very-dark-blue;
+      color: #fff;
+      width: 100%;
+      position: absolute;
+      display: none;
+      padding: 12px 0px !important;
+      cursor: pointer;
+    }
+    .button__Cart.InCart{
+      background-color: $primary-clr1;
+      color: #fff;
+      
+    }
+    &:hover {
+      .button__Cart {
+        display: block;
+        bottom: 30%;
+      }
+    }
+  }
+}
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8125rem;
+  .card__title {
+    font-size: 1rem;
+    color: $Very-dark-blue;
+    max-height: 4.6875rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .card__price {
+    font-size: 0.9375rem;
+    font-weight: map-get($map: $font-weight, $key: "semibold");
+    color: $primary-clr1;
+  }
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 0.4375rem;
+    .rate__stars {
+      display: flex;
+      align-items: center;
+      gap: 0.3125rem;
+    }
+    .rate__count {
+      font-size: 0.9375rem;
+      font-weight: map-get($map: $font-weight, $key: "semibold");
+      color: $Dark-grayish-blue;
+    }
+  }
+}
