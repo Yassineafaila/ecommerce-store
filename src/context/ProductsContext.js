@@ -22,6 +22,9 @@ function ProductsProvider({ children }) {
     };
     fetchProducts();
   }, []);
+  useEffect(() => {
+    calculateTotalPrice()
+  },[CartProducts])
   async function getProductInfo(id) {
     const fetchProduct = async () => {
       try {
@@ -37,24 +40,24 @@ function ProductsProvider({ children }) {
     fetchProduct();
   }
   const AddProductsToCart = (id) => {
-    const productCart = CartProducts.find((item) => item.id === id);
+    const existingProduct = CartProducts.find((item) => item.id === id);
 
-    if (productCart) {
-      productCart.quantity += 1
-      
+    if (existingProduct) {
+      existingProduct.quantity += 1;
+      existingProduct.subTotal =
+        existingProduct.quantity * existingProduct.price;
     } else {
       const product = products.find((item) => item.id === id);
+
       if (product) {
-        setCartProducts((prevCartProducts) => {
-          const updatedCart = [
-            ...prevCartProducts,
-            { ...product, quantity: 1, subTotal: product.price },
-          ];
-          return updatedCart;
-        });
-        
+        setCartProducts((prevCartProducts) => [
+          ...prevCartProducts,
+          { ...product, quantity: 1, subTotal: product.price },
+        ]);
       }
     }
+
+    calculateTotalPrice();
     
   };
   const IncrementQuantity = (id) => {
@@ -63,7 +66,7 @@ function ProductsProvider({ children }) {
       productCart.quantity += 1;
       productCart.subTotal = productCart.quantity * productCart.price;
       setCartProducts([...CartProducts]);
-      GetTotalPriceOfCart();
+      calculateTotalPrice();
     }
     
   };
@@ -79,19 +82,19 @@ function ProductsProvider({ children }) {
         productCart.subTotal = productCart.quantity * productCart.price;
       }
       setCartProducts([...CartProducts]);
-      GetTotalPriceOfCart();
+      calculateTotalPrice();
     }
     
   };
   const RemoveProductFromTheCart = (id) => {
     setCartProducts([...CartProducts.filter((product) => product.id !== id)]);
   };
-  const GetTotalPriceOfCart = () => {
+  const calculateTotalPrice = () => {
     const total = CartProducts.reduce(
       (acc, product) => acc + product.subTotal,
       0
     );
-    setTotalPrice(total);
+    setTotalPrice(Math.round(total));
   };
   const AddLikedProducts = (id) => {
     const likedProduct = likedProducts.find((item) => item.id === id);
@@ -99,9 +102,15 @@ function ProductsProvider({ children }) {
       console.log("the product already liked");
     } else {
       const product = products.find((item) => item.id == id);
-      setLikedProducts([...likedProducts, product]);
+      setLikedProducts([...likedProducts, {...product,liked:true}]);
     }
   };
+  const RemoveLikedProduct = (id) => {
+    console.log("hi")
+    setLikedProducts((prevLikedProducts) =>
+      prevLikedProducts.filter((product) => product.id !== id)
+    );
+  }
   return (
     <ProductsContext.Provider
       value={{
@@ -116,6 +125,7 @@ function ProductsProvider({ children }) {
         IncrementQuantity,
         DecrementQuantity,
         AddLikedProducts,
+        RemoveLikedProduct,
         TotalPrice,
       }}
     >
