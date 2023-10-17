@@ -111,8 +111,9 @@ function Navbar() {
                 scale: 1.05,
               }}
             >
-              <NavLink>
+              <NavLink to="/sign-in">
                 <FontAwesomeIcon icon={faUser} />
+                <span>Sign in</span>
               </NavLink>
             </motion.li>
           </ul>
