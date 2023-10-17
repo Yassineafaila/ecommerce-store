@@ -14,7 +14,7 @@ function WhishList() {
           <Cardskeleton count={10} />
         ) : (
           likedProducts.map((product) => (
-            <Card product={product} key={product.id} />
+            <Card product={product} key={product.id} liked={product.liked} />
           ))
         )}
       </div>
