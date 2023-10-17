@@ -10,6 +10,8 @@ import Navbar from "./components/Navbar/Navbar";
 import ShopPage from "./pages/ShopPage/ShopPage";
 import WhishList from "./pages/WhishList/WhishList";
 import SignIn from "./pages/SignIn/SignIn";
+import About from "./pages/About/About";
+import Footer from "./components/Footer/Footer";
 function App() {
   return (
     <div className="App">
@@ -24,9 +26,11 @@ function App() {
             <Route path="/shopping-cart" element={<ShopPage />} />
             <Route path="/wish-list" element={<WhishList/>}/>
             <Route path="/contact-us" element={<Contact />} />
+            <Route path="/about-us" element={<About/>}/>
             <Route path="/sign-in" element={<SignIn/>}/>
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <Footer/>
         </BrowserRouter>
       </ProductsProvider>
     </div>

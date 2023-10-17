@@ -6,7 +6,13 @@ import ProductInfoSkeletion from "./ProductInfoSkeletion";
 import LazyLoad from "react-lazy-load";
 function ProductInfo() {
   const { id } = useParams();
-  const { currentProduct, getProductInfo,isLoading } = useProducts();
+  const {
+    currentProduct,
+    getProductInfo,
+    isLoading,
+    IncrementQuantity,
+    DecrementQuantity,
+  } = useProducts();
 
   useEffect(() => {
     getProductInfo(id);
@@ -76,9 +82,16 @@ function ProductInfo() {
               </section>
               <footer className="product__action">
                 <div>
-                  <button className="minus">-</button>
+                  <button
+                    className="minus"
+                    onClick={DecrementQuantity(currentProduct.id)}
+                  >
+                    -
+                  </button>
                   <input type="text" disabled={true} />
-                  <button className="add">+</button>
+                  <button className="add" onClick={IncrementQuantity(currentProduct.id)}>
+                    +
+                  </button>
                 </div>
                 <div>
                   <button className="btn__buy">Buy Now</button>
