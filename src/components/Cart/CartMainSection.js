@@ -62,7 +62,6 @@ function CartMainSection({ CartProducts }) {
                   })
               }
       </tbody>
-      <h1>Total :{TotalPrice}</h1>
     </table>
   )
 }

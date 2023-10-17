@@ -5,8 +5,9 @@
   border-collapse: collapse;
   width: 1000px;
   margin: 1.25rem auto;
+  overflow-x: scroll;
   thead {
-    width: 100% !important;
+    // width: 100% !important;
 
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
@@ -86,5 +87,12 @@
         }
       }
     }
+  }
+}
+@media screen and (max-width:768px){
+  .table{
+    overflow: scroll !important;
+    max-width:600px !important;
+    max-height: 31.25rem !important;
   }
 }

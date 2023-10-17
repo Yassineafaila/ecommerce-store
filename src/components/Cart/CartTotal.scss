@@ -1,0 +1,45 @@
+@import "../../styles/base/_typography";
+@import "../../styles/base/variables";
+.cart{
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    flex-direction: column;
+    width: 340px;
+    padding: 1.3rem 1rem;
+    border: 1px solid #272727;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    #{&}__title{
+        font-size: 1.25rem;
+    }
+    #{&}__container:not(:last-child){
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #272727;
+        padding-bottom: 1rem;
+        span:first-child{
+            text-transform: capitalize;
+        }
+    }
+    #{&}__action{
+        background-color: $primary-clr1;
+        color: #fff;
+        border: none;
+        margin: 10px auto;
+        width: max-content;
+        padding: 0.8125rem 1rem;
+        border-radius: 0.25rem;
+        -webkit-border-radius: 0.25rem;
+        -moz-border-radius: 0.25rem;
+        -ms-border-radius: 0.25rem;
+        -o-border-radius: 0.25rem;
+        font-weight: map-get($map: $font-weight, $key: "medium");
+        cursor: pointer;
+}
+}
