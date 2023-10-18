@@ -1,0 +1,140 @@
+@import "../../styles/base/variables";
+@import "../../styles/base/_typography";
+.sign_in {
+  padding: 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: calc(100vh - 80px);
+
+  #{&}_container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+
+    .img__container {
+      background-color: #cbe4e8;
+    //   height: 500px;
+      width: 100%;
+      img {
+        display: block;
+        max-width: 100%;
+      }
+    }
+    .form__container {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+      //   width: 100%;
+      h2 {
+        color: $Very-dark-blue;
+      }
+      p {
+        font-size: 1rem;
+        font-weight: map-get($map: $font-weight, $key: "regular");
+      }
+      form {
+        padding: 1rem 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        width: 100%;
+        input {
+          border: none;
+          outline: none;
+          border-bottom: 1px solid #dddd;
+          padding-bottom: 1rem;
+          max-width: 25rem;
+          &:focus {
+            border-bottom: 1px solid $primary-clr1;
+          }
+        }
+        div {
+          margin-top: 1.25rem;
+          max-width: 25rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          button {
+            border: none;
+            background-color: $primary-clr1;
+            color: #fff;
+            font-weight: map-get($map: $font-weight, $key: "medium");
+            padding: 0.8125rem 1rem;
+            width: 6.425rem;
+            border-radius: 4px;
+            -webkit-border-radius: 4;
+            -moz-border-radius: 4;
+            -ms-border-radius: 4;
+            -o-border-radius: 4;
+            cursor: pointer;
+          }
+          a {
+            color: $primary-clr1;
+            font-size: 1rem;
+            font-weight: map-get($map: $font-weight, $key: "medium");
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .sign_in {
+    display: flex;
+    align-items: center;
+
+    #{&}_container {
+      align-items: center;
+      flex-direction: row;
+      height: inherit !important;
+
+      .img__container {
+        width: 80% !important;
+        display: flex;
+        align-items: center;
+
+        img {
+          display: block;
+          max-width: 100%;
+        }
+      }
+      .form__container {
+        width: 70%;
+      }
+    }
+  }
+}
+@media screen and (min-width:1025px) {
+    .sign_in {
+    display: flex;
+    align-items: center;
+
+    #{&}_container {
+      align-items: center;
+      flex-direction: row;
+      height: inherit !important;
+
+      .img__container {
+        width: 80% !important;
+        display: flex;
+        align-items: center;
+
+        img {
+          display: block;
+          max-width: 100%;
+        }
+      }
+      .form__container {
+        width: 70%;
+        padding: 1.4rem;
+      }
+    }
+  }
+}
