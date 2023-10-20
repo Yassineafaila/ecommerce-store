@@ -1,0 +1,197 @@
+@import "../../styles/base/_variables";
+@import "../../styles/base/_typography";
+.contact_us {
+  padding: 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: calc(100vh - 80px);
+  font-family: $body-font-family;
+
+  #{&}_container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 1.25rem;
+    article {
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+      padding: 1rem;
+      display: flex;
+      gap: 0.625rem;
+      flex-direction: column;
+      border-radius: 4px;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      -ms-border-radius: 4px;
+      -o-border-radius: 4px;
+      div {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        h3 {
+          display: flex;
+          align-items: center;
+          gap: 0.625rem;
+          font-size: 0.9375rem;
+          span {
+            padding: 10px;
+            width: 38px;
+            height: 38px;
+            background-color: $primary-clr1;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+        p {
+          font-size: 0.875rem;
+          color: $Dark-grayish-blue;
+        }
+      }
+      form {
+        width: 100%;
+        div:first-child {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-direction: row;
+          flex-wrap: wrap;
+          input {
+            border: none;
+            background-color: $background-input;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            -o-border-radius: 4px;
+            padding: 0.8125rem 1rem;
+            width: 100%;
+            &:hover {
+              outline: 1px solid $primary-clr1;
+            }
+          }
+        }
+        div:nth-child(2) {
+          width: 100%;
+          textarea {
+            border: none;
+            background-color: $background-input;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            -o-border-radius: 4px;
+            padding: 0.8125rem 1rem;
+            height: 60px;
+          }
+        }
+        div:last-child {
+          width: 100%;
+          button {
+            background-color: $primary-clr1;
+            color: #fff;
+            font-family: $body-font-family;
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 0.8125rem 1rem;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            -o-border-radius: 4px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .contact_us {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    #{&}_container {
+      flex-direction: row;
+      article {
+        div {
+          gap: 0.8125rem;
+        }
+        form {
+          width: 100%;
+          div:nth-child(2) {
+            width: 100%;
+            textarea {
+              height: 150px;
+              &:hover {
+                outline: 1px solid $primary-clr1;
+              }
+            }
+          }
+          div:last-child {
+            width: 100%;
+            display: flex;
+            align-items: flex-end;
+            button {
+              max-width: 13.4375rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 992px) {
+  .contact_us {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    #{&}_container {
+      flex-direction: row;
+      article {
+        div {
+          gap: 0.8125rem;
+        }
+        form {
+          width: 100%;
+          div:first-child {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          input {
+            max-width: 215px;
+          }
+        }
+          div:nth-child(2) {
+            width: 100%;
+            textarea {
+              height: 150px;
+              &:hover {
+                outline: 1px solid $primary-clr1;
+              }
+            }
+          }
+          div:last-child {
+            width: 100%;
+            display: flex;
+            align-items: flex-end;
+            button {
+              max-width: 13.4375rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
