@@ -6,28 +6,16 @@ import {
   faXmark,
   faHeart,
   faCartShopping,
-  faUser
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { motion, AnimatePresence } from "framer-motion";
 import "./Navbar.scss";
 import navMenu from "./Navbar.animation";
 import { useProducts } from "../../context/ProductsContext";
+import { useAuth } from "../../context/AuthContext";
 function Navbar() {
   const { CartProducts, likedProducts } = useProducts();
-  const MenuItem = [
-    {
-      link: "Home",
-      path: "/",
-    },
-    {
-      link: "Contact Us",
-      path: "/contact-us",
-    },
-    {
-      link: "About Us",
-      path: "/about-us",
-    },
-  ];
+  const { logout, isAuthenticated } = useAuth();
   const [showMenu, setShowMenu] = useState(false);
   const showMenuHandler = () => {
     setShowMenu(true);
@@ -68,19 +56,49 @@ function Navbar() {
           </div>
         </div>
         <ul className={`navbar__list ${showMenu ? "show" : null}`}>
-          {MenuItem.map((item, index) => {
-            return (
-              <motion.li
-                whileHover={{
-                  scale: 1.05,
-                }}
-                className="navbar__item"
-                key={index}
-              >
-                <NavLink to={item.path}>{item.link}</NavLink>
-              </motion.li>
-            );
-          })}
+          <motion.li
+            whileHover={{
+              scale: 1.05,
+            }}
+            className="navbar__item"
+          >
+            <NavLink to="/">Home</NavLink>
+          </motion.li>
+          <motion.li
+            whileHover={{
+              scale: 1.05,
+            }}
+            className="navbar__item"
+          >
+            <NavLink to="/contact-us">Contact Us</NavLink>
+          </motion.li>
+          <motion.li
+            whileHover={{
+              scale: 1.05,
+            }}
+            className="navbar__item"
+          >
+            <NavLink to="/about-us">About Us</NavLink>
+          </motion.li>
+          {isAuthenticated ? (
+            <motion.li
+              whileHover={{
+                scale: 1.05,
+              }}
+              className="navbar__item"
+            >
+              <button type="button" onClick={()=>logout()}>Log Out</button>
+            </motion.li>
+          ) : (
+            <motion.li
+              whileHover={{
+                scale: 1.05,
+              }}
+              className="navbar__item"
+            >
+              <NavLink to="/sign-up">Sign Up</NavLink>
+            </motion.li>
+          )}
         </ul>
         <div>
           <ul className={`navbar__list`}>
@@ -111,10 +129,16 @@ function Navbar() {
                 scale: 1.05,
               }}
             >
-              <NavLink to="/sign-in">
-                <FontAwesomeIcon icon={faUser} />
-                <span>Sign in</span>
-              </NavLink>
+              {isAuthenticated ? (
+                <NavLink to="/manage-account">
+                  <FontAwesomeIcon icon={faUser} />
+                </NavLink>
+              ) : (
+                <NavLink to="/sign-in">
+                  <FontAwesomeIcon icon={faUser} />
+                  <span>Sign in</span>
+                </NavLink>
+              )}
             </motion.li>
           </ul>
         </div>
