@@ -5,6 +5,10 @@
   background-color: #fff;
   max-width: 80rem;
   margin: 0 auto !important;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   .product__info {
     display: flex;
     align-items: center;
@@ -46,6 +50,7 @@
           width: 100%;
           display: flex;
           margin-block-end: 0.625rem;
+
           .product__rate {
             margin-right: 0.625rem;
             display: flex;
@@ -75,6 +80,7 @@
         align-items: center;
         justify-content: space-between;
         width: 100%;
+        background-color: transparent !important;
         .minus {
           height: 40px;
           border: none;
@@ -103,7 +109,7 @@
 
         }
       }
-      div {
+      div{
         flex: 1;
         // padding-inline: 1rem;
         display: flex;
@@ -120,6 +126,11 @@
           -moz-border-radius: 0.25rem;
           -ms-border-radius: 0.25rem;
           -o-border-radius: 0.25rem;
+          &:hover{
+            outline: 1px solid $primary-clr1;
+            color: $primary-clr1;
+            background-color: transparent;
+          }
           cursor: pointer;
         }
         .btn__like{
@@ -133,6 +144,12 @@
           display: flex;
           align-items: center;
           justify-content: center;
+          &:hover{
+            background-color: $primary-clr1;
+            outline: none;
+            border: none;
+            
+          }
         }
       }
     }

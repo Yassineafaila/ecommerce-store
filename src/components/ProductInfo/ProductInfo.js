@@ -12,6 +12,7 @@ function ProductInfo() {
     isLoading,
     IncrementQuantity,
     DecrementQuantity,
+    AddLikedProducts
   } = useProducts();
 
   useEffect(() => {
@@ -80,22 +81,28 @@ function ProductInfo() {
                   {currentProduct.description}
                 </p>
               </section>
-              <footer className="product__action">
-                <div>
+              <div className="product__action">
+                <div className="product__footer">
                   <button
                     className="minus"
-                    onClick={DecrementQuantity(currentProduct.id)}
+                    onClick={()=>DecrementQuantity(currentProduct.id)}
                   >
                     -
                   </button>
-                  <input type="text" disabled={true} />
-                  <button className="add" onClick={IncrementQuantity(currentProduct.id)}>
+                  <input type="text" disabled={true}  />
+                  <button
+                    className="add"
+                    onClick={()=>IncrementQuantity(currentProduct.id)}
+                  >
                     +
                   </button>
                 </div>
                 <div>
                   <button className="btn__buy">Buy Now</button>
-                  <button className="btn__like">
+                  <button
+                    className="btn__like"
+                    onClick={() => AddLikedProducts(currentProduct.id)}
+                  >
                     <svg
                       width="18"
                       height="16"
@@ -113,7 +120,7 @@ function ProductInfo() {
                     </svg>
                   </button>
                 </div>
-              </footer>
+              </div>
             </div>
           </article>
         </section>
